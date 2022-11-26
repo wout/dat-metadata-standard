@@ -2,8 +2,9 @@
 A metadata standard for storing distributed on-chain NFTs on Cardano.
 
 ## Introduction
-This standard is useful for generative on-chain art but it may also apply to
-other use cases. It aims to solve the three following problems.
+This standard describes the separation of data and logic for on-chain NFTs. It
+is useful for generative on-chain art but it may also apply to other use cases.
+The main goal is to solve the three problems as described below.
 
 ### Storage limit
 Cardano is very well suited for on-chain NFTs. Compared to other blockchains,
@@ -17,10 +18,10 @@ parameters. This results in thousands of copies of the same code, often close to
 or at the full capacity of the 16 kB limit.
 
 ### External dependencies
-Sometimes it may not be feasible or even impossible to store all dependencies
-on-chain. Examples are p5.js, three.js, python or Blender to name a few. There
-is no clearly defined way to describe external dependencies in such a way that
-on-chain NFTs can be reproduced.
+Sometimes it may not be feasible, or even impossible, to store all dependencies
+on the blockchain. Examples are p5.js, three.js, python or Blender to name a
+few. There is no clearly defined way to describe external dependencies in such a
+way that on-chain NFTs can be reproduced by third parties.
 
 ## Metadata
 The Elpis Metadata Standard builds on the existing
