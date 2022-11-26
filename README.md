@@ -1,5 +1,7 @@
-# Elpis Metadata Standard (v1.0)
+# Elpis Metadata Standard (Draft)
 A metadata standard for storing distributed on-chain NFTs on Cardano.
+
+**IMPORTANT**: This document is still a work in progress. 
 
 ## Introduction
 This standard describes the separation of data and logic for on-chain NFTs. It
@@ -99,12 +101,17 @@ with external dependencies.
 ```
 
 Additional properties:
-- **`dependencies`**: an optional array of strings with the fingerprints (e.g.
-  `asset17pwjm6702q8kstxddv6may3ltlv6gactp666d4`) or names (e.g. `p5.js@1.5.0`)
-  of the dependencies.
+- **`dependencies`**: an optional array of strings with the fingerprints or
+  names of the dependencies. For example:
+  - `asset17pwjm6702q8kstxddv6may3ltlv6gactp666d4`
+  - `p5.js@1.5.0` 
 
 ### 3. Dependency (optional)
-A dependency token can be either 
+A dependency token can be either an on-chain library stored in the **`files`**
+property as an embedded base64-encoded string or a reference to an external
+dependency. In the case of the latter, installation and usage instructions of
+the library or external program should be included in the **`files`** property
+in a `text/plain` or `text/markdown` format.
 
 ```
 {
@@ -131,5 +138,5 @@ A dependency token can be either
 ```
 
 ## License
-Elpis Metadata Standard (v1.0) is licensed under
+Elpis Metadata Standard is licensed under
 [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
