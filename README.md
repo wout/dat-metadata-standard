@@ -14,7 +14,7 @@ of 16 kB is more limited in comparison to other chains.
 Some existing on-chain projects on Cardano make inefficient use of block space
 by repeatedly storing the same monolithic blob accompanied by a few unique
 parameters. This results in thousands of copies of the same code, often close to
-or at the full available 16 kB.
+or at the full capacity of the 16 kB limit.
 
 ### External dependencies
 Sometimes it may not be feasible or even impossible to store all dependencies
@@ -22,25 +22,14 @@ on-chain. Examples are p5.js, three.js, python or Blender to name a few. There
 is no clearly defined way to describe external dependencies in such a way that
 on-chain NFTs can be reproduced.
 
-## Definitions
-
-### Scene (Subject/Object/Sketch/Token/Asset...?)
-
-
-### Renderer
-The renderer is an NFT carrying either a self-contained program or one with
-dependencies. In the case of the latter, all dependencies are defined in the
-metadata of the renderer. The policy 
-
-### Dependency
-
 ## Metadata
 The Elpis Metadata Standard builds on the existing
 [CIP-0025](https://github.com/cardano-foundation/CIPs/tree/master/CIP-0025)
-standard and is divided into three separate parts.
+standard and is divided into three separate entities.
 
 ### 1. Scene
-The **scene** contains all the information to render the NFT.
+This is the part the end user will receive in their wallet. It contains all the
+information to render the NFT.
 
 ```
 {
@@ -72,14 +61,15 @@ The **scene** contains all the information to render the NFT.
 ```
 
 Additional properties:
-- The **`renderer`** is an object with two properties:
-  - **`main`**: the fingerprint of the token containing the renderer
+- **`renderer`**: an object with two properties
+  - **`main`**: the fingerprint of the token containing the actual renderer
   - **`arguments`**: an object with arbitrary key/value pairs used as arguments
     for the invocation of the renderer
 
 ### 2. Renderer
-The renderer can either be a self-contained program, stored in the **`files`**
-property as a base64 encoded string, or a program with external dependencies.
+The renderer token is stored in the **`files`** property as an embedded
+base64-encoded string. It can either be a self-contained program or a program
+with external dependencies.
 
 ```
 {
@@ -99,9 +89,7 @@ property as a base64 encoded string, or a program with external dependencies.
           <other_properties>
         }],
 
-        "dependencies": [
-          <string>
-        ]
+        "dependencies": <array | null>
       }
     },
     "version": <version_id>
@@ -109,10 +97,14 @@ property as a base64 encoded string, or a program with external dependencies.
 }
 ```
 
-Any dependencies should be defined in the **`dependencies`** property, which is
-an array of strings.
+Additional properties:
+- **`dependencies`**: an optional array of strings with the fingerprints (e.g.
+  `asset17pwjm6702q8kstxddv6may3ltlv6gactp666d4`) or names (e.g. `p5.js@1.5.0`)
+  of the dependencies.
 
 ### 3. Dependency (optional)
+A dependency token can be either 
+
 ```
 {
   "721": {
@@ -136,3 +128,7 @@ an array of strings.
   }
 }
 ```
+
+## License
+Elpis Metadata Standard (v1.0) is licensed under
+[CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
