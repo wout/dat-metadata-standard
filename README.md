@@ -104,7 +104,8 @@ the file should match the `asset_name`.
 ```
 
 Properties for the **renderer** entity:
-- **`outputType`** (required): the mime type of the renderer's output
+- **`outputType`** (required): the mime type of the renderer's output (it's up
+  to the viewer to define de accepted formats)
 - **`dependencies`** (optional): an array of objects with dependency
   definitions.
 

@@ -1,0 +1,39 @@
+{
+  "721": {
+    "1gxhmr15d71ux0mlpuy6crbrok6ffxlz5xbqfy5miznsel1t9ua44xsp": {
+      "my_renderer": {
+        "files": [
+          {
+            "name": "my_renderer.cr",
+            "mediaType": "text/crystal",
+            "src": [
+              "require %(xml)",
+              "struct Project",
+              "  getter seed : Int32",
+              "  getter prng : Random",
+              "  DIM = 100",
+              "  def initialize(@seed)",
+              "    @prng = Random.new(@seed)",
+              "  end",
+              "  def to_svg",
+              "    d, c, r = DIM, DIM / 2, DIM * prng.rand / 2",
+              "    XML.build_fragment(indent: %(  )) do |svg|",
+              "      svg.element(%(svg), xmlns: %(http://www.w3.org/2000/svg),",
+              "        version: %(1.1), width: d, height: d,",
+              "        viewBox: %(0 0 #{d} #{d})) do",
+              "        svg.element(%(rect), width: d, height: d, fill: %(#f03))",
+              "        svg.element(%(circle), r: r, cx: c, cy: c, fill:%(#fff))",
+              "      end",
+              "    end",
+              "  end",
+              "end",
+              "puts Project.new(ARGV[0].to_i).to_svg"
+            ]
+          }
+        ],
+
+        "outputType": "text/svg"
+      }
+    }
+  }
+}
