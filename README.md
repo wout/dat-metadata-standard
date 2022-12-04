@@ -1,12 +1,12 @@
-# Elpis Metadata Standard (Draft)
+# Venster Metadata Standard (Draft)
 A metadata standard for storing distributed on-chain NFTs on Cardano.
 
 **IMPORTANT**: This document is still a work in progress. 
 
 ## Introduction
 This standard describes the separation of data and logic for on-chain NFTs. It
-is useful for generative on-chain art but it may also apply to other use cases.
-The main goal is to solve the three problems as described below.
+is intended for generative on-chain art but it may also apply to other use
+cases. The main goal is to solve the three problems described below.
 
 ### Storage limit
 Cardano is very well suited for on-chain NFTs. Compared to other blockchains,
@@ -26,7 +26,7 @@ few. There is no clearly defined way to describe external dependencies in such a
 way that on-chain NFTs can be reproduced by third parties.
 
 ## Metadata
-The Elpis Metadata Standard builds on the existing
+The Venster Metadata Standard builds on the existing
 [CIP-0025](https://github.com/cardano-foundation/CIPs/tree/master/CIP-0025)
 standard and is divided into three separate entities.
 
