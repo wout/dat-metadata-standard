@@ -99,9 +99,7 @@ Properties for the **renderer** entity:
 
 **Note**: The renderer token can be burned after minting to free up the UTxO.
 
-#### Examples of dependency definitions
-
-##### On-chain dependencies
+#### On-chain dependencies
 
 These are project-specific dependencies managed by the minter. They should be
 minted within the same `policy_id`.
@@ -113,7 +111,7 @@ minted within the same `policy_id`.
 }
 ```
 
-##### Internal dependencies:
+#### Internal dependencies:
 
 These are on-chain dependencies managed by the viewer and made available to the
 renderer on execution.
@@ -125,7 +123,7 @@ renderer on execution.
 }
 ```
 
-##### External dependencies:
+#### External dependencies:
 
 These are managed by the viewer and made available to the renderer on execution.
 
