@@ -56,6 +56,8 @@ information to render the NFT.
           <other_properties>
         }],
 
+        "properties": <array | null>,
+
         "renderer": {
           "main": <renderer_asset_name>,
           "arguments": <object>
