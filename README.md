@@ -53,90 +53,94 @@ information to render the NFT.
         }],
 
         "renderer": {
-          "main": <string>,
+          "main": <renderer_asset_name>,
           "arguments": <object>
         }
       }
-    },
-    "version": <version_id>
+    }
   }
 }
 ```
 
-Additional properties:
-- **`renderer`**: an object with two properties
-  - **`main`**: the fingerprint of the token containing the actual renderer
-  - **`arguments`**: an object with arbitrary key/value pairs used as arguments
-    for the invocation of the renderer
+Properties for the **scene** entity:
+- **`renderer`** (required): an object with two properties
+  - **`main`** (required): the `asset_name` of the renderer token within the
+    current `policy_id` (e.g. `my_renderer`)
+  - **`arguments`** (required): an object with arbitrary key/value pairs used as
+    arguments for the invocation of the renderer (e.g. `{"seed": 123}`)
 
 ### 2. Renderer
-The renderer token is stored in the **`files`** property as an embedded
-base64-encoded string. It can either be a self-contained program or a program
-with external dependencies.
+The renderer token is part of the same `policy_id`. It can either be a
+self-contained program or one with external dependencies. The code is stored in
+the **`files`** property as-is or as a base64-encoded string. The `name`
+property of the file should be the same as the `asset_name`.
 
 ```
 {
   "721": {
     "<policy_id>": {
       "<asset_name>": {
-        "name": <string>,
-        "description": <string>,
-
-        "image": <uri | array>,
-        "mediaType": image/<mime_sub_type>,
-        
         "files": [{
-          "name": <string>,
+          "name": <asset_name>,
           "mediaType": <mime_type>,
-          "src": <uri | array>,
-          <other_properties>
+          "src": <uri | array>
         }],
 
         "dependencies": <array | null>
       }
-    },
-    "version": <version_id>
+    }
   }
 }
 ```
 
-Additional properties:
-- **`dependencies`**: an optional array of strings with the fingerprints or
-  names of the dependencies. For example:
-  - `asset17pwjm6702q8kstxddv6may3ltlv6gactp666d4`
-  - `p5.js@1.5.0` 
+Properties for the **renderer** entity:
+- **`dependencies`** (optional): an array of objects with dependency
+  definitions.
+  - On-chain dependencies (within the same `policy_id`)
 
-### 3. Dependency (optional)
-A dependency token can be either an on-chain library stored in the **`files`**
-property as an embedded base64-encoded string or a reference to an external
-dependency. In the case of the latter, installation and usage instructions of
-the library or external program should be included in the **`files`** property
-in a `text/plain` or `text/markdown` format.
+    ```
+    {
+      "type": "onchain",
+      "asset_name": <dependency_asset_name>
+    }
+    ```
+  - External dependencies:
+    ```
+    {
+      "type": "external",
+      "name": <library_name>,
+      "version": <version_number>
+    }
+    ```
+
+**Note**: The renderer token can be burned after minting to free up the UTxO.
+
+**Important**: External dependencies are managed by the viewer. It will be up to
+them to define which libraries will be made available.
+
+### 3. Dependency
+A dependency token is part of the same `policy_id`. Its code is stored in the
+**`files`** property as-is or as a base64-encoded string. The `name` property of
+the file should be the same as the `asset_name`.
 
 ```
 {
   "721": {
     "<policy_id>": {
       "<asset_name>": {
-        "name": <string>,
-        "description": <string>,
-
-        "image": <uri | array>,
-        "mediaType": image/<mime_sub_type>,
-        
         "files": [{
-          "name": <string>,
+          "name": <asset_name>,
           "mediaType": <mime_type>,
-          "src": <uri | array>,
-          <other_properties>
+          "src": <uri | array>
         }]
       }
-    },
-    "version": <version_id>
+    }
   }
 }
 ```
 
+**Note**: Dependency tokens can be burned after minting to free up the UTxOs.
+
 ## License
-Elpis Metadata Standard is licensed under
+Venster Metadata Standard is licensed under
 [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
