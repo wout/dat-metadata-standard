@@ -92,6 +92,8 @@ property of the file should be the same as the `asset_name`.
           "src": <uri | array>
         }],
 
+        "outputType": <mime_type>,
+
         "dependencies": <array | null>
       }
     }
@@ -100,6 +102,7 @@ property of the file should be the same as the `asset_name`.
 ```
 
 Properties for the **renderer** entity:
+- **`outputType`** (required): the mime type of the renderer's output
 - **`dependencies`** (optional): an array of objects with dependency
   definitions.
 
