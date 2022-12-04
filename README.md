@@ -79,9 +79,9 @@ Properties for the **scene** entity:
 
 ### **2**. Renderer
 The renderer token is part of the same `policy_id`. It can either be a
-self-contained program or one with external dependencies. The code is stored in
-the **`files`** property as-is or as a base64-encoded string. The `name`
-property of the file should match the `asset_name`.
+self-contained program or one with dependencies. The code is stored in the
+**`files`** property as-is or as a base64-encoded string. The `name` property of
+the file should match the `asset_name`.
 
 ```
 {
