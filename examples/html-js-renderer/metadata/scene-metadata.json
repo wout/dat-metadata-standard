@@ -14,6 +14,10 @@
           "src": "ipfs://QmxHKa4IXAt6LQaTOtDsvNjfysaMPtlFv0bpL0pwYyyjyi"
         }],
 
+        "properties": {
+          "author": "My Name"
+        },
+
         "renderer": {
           "main": "my_renderer",
           "arguments": {

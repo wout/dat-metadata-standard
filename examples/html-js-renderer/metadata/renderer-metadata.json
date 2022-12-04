@@ -1,0 +1,45 @@
+{
+  "721": {
+    "1gxhmr15d71ux0mlpuy6crbrok6ffxlz5xbqfy5miznsel1t9ua44xsp": {
+      "my_renderer": {
+        "files": [
+          {
+            "name": "my_renderer.css",
+            "mediaType": "text/css",
+            "src": [
+              "data:text/css;base64,..."
+            ]
+          },
+          {
+            "name": "my_renderer.html",
+            "mediaType": "text/html",
+            "src": [
+              "data:text/html;base64,..."
+            ]
+          },
+          {
+            "name": "my_renderer.js",
+            "mediaType": "application/javascript",
+            "src": [
+              "data:application/javascript;base64,..."
+            ]
+          }
+        ],
+
+        "outputType": "text/html",
+
+        "dependencies": [
+          {
+            "type": "onchain",
+            "asset_name": "my_dependency"
+          },
+          {
+            "type": "external",
+            "name": "p5",
+            "version": "1.5"
+          }
+        ]
+      }
+    }
+  }
+}
