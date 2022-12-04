@@ -61,7 +61,7 @@ information to render the NFT.
           "arguments": <object>
         },
 
-        "properties": <array | null>
+        "properties": <object | null>
       }
     }
   }
