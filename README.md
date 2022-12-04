@@ -81,7 +81,7 @@ Properties for the **scene** entity:
 The renderer token is part of the same `policy_id`. It can either be a
 self-contained program or one with external dependencies. The code is stored in
 the **`files`** property as-is or as a base64-encoded string. The `name`
-property of the file should be the same as the `asset_name`.
+property of the file should match the `asset_name`.
 
 ```
 {
@@ -89,7 +89,7 @@ property of the file should be the same as the `asset_name`.
     "<policy_id>": {
       "<asset_name>": {
         "files": [{
-          "name": <asset_name>,
+          "name": <asset_name>.<extension>,
           "mediaType": <mime_type>,
           "src": <uri | array>
         }],
@@ -149,7 +149,7 @@ These are managed by the viewer and made available to the renderer on execution.
 ### **3**. Dependency
 A dependency token is part of the same `policy_id`. Its code is stored in the
 **`files`** property as-is or as a base64-encoded string. The `name` property of
-the file should be the same as the `asset_name`.
+the file should match the `asset_name`.
 
 ```
 {
@@ -157,7 +157,7 @@ the file should be the same as the `asset_name`.
     "<policy_id>": {
       "<asset_name>": {
         "files": [{
-          "name": <asset_name>,
+          "name": <asset_name>.<extension>,
           "mediaType": <mime_type>,
           "src": <uri | array>
         }]
