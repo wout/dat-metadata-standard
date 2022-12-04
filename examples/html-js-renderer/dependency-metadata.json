@@ -1,0 +1,15 @@
+{
+  "721": {
+    "1gxhmr15d71ux0mlpuy6crbrok6ffxlz5xbqfy5miznsel1t9ua44xsp": {
+      "my_dependency": {
+        "files": [{
+          "name": "my_dependency",
+          "mediaType": "application/javascript",
+          "src": [
+            "data:application/javascript;base64,..."
+          ]
+        }]
+      }
+    }
+  }
+}
