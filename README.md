@@ -96,27 +96,46 @@ property of the file should be the same as the `asset_name`.
 Properties for the **renderer** entity:
 - **`dependencies`** (optional): an array of objects with dependency
   definitions.
-  - On-chain dependencies (within the same `policy_id`)
-
-    ```
-    {
-      "type": "onchain",
-      "asset_name": <dependency_asset_name>
-    }
-    ```
-  - External dependencies:
-    ```
-    {
-      "type": "external",
-      "name": <library_name>,
-      "version": <version_number>
-    }
-    ```
 
 **Note**: The renderer token can be burned after minting to free up the UTxO.
 
-**Important**: External dependencies are managed by the viewer. It will be up to
-them to define which libraries will be made available.
+#### Examples of dependency definitions
+
+##### On-chain dependencies
+
+These are project-specific dependencies managed by the minter. They should be
+minted within the same `policy_id`.
+
+```
+{
+  "type": "onchain",
+  "asset_name": <dependency_asset_name>
+}
+```
+
+##### Internal dependencies:
+
+These are on-chain dependencies managed by the viewer and made available to the
+renderer on execution.
+
+```
+{
+  "type": "internal",
+  "fingerprint": <asset_fingerprint>
+}
+```
+
+##### External dependencies:
+
+These are managed by the viewer and made available to the renderer on execution.
+
+```
+{
+  "type": "external",
+  "name": <library_name>,
+  "version": <version_number>
+}
+```
 
 ### 3. Dependency
 A dependency token is part of the same `policy_id`. Its code is stored in the
