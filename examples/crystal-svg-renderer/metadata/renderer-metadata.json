@@ -9,11 +9,10 @@
             "src": [
               "require %(xml)",
               "struct Project",
-              "  getter seed : Int32",
               "  getter prng : Random",
               "  DIM = 100",
-              "  def initialize(@seed)",
-              "    @prng = Random.new(@seed)",
+              "  def initialize(seed)",
+              "    @prng = Random.new(seed)",
               "  end",
               "  def to_svg",
               "    d, c, r = DIM, DIM / 2, DIM * prng.rand / 2",
