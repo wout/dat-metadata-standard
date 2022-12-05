@@ -6,7 +6,7 @@ A metadata standard for storing distributed on-chain NFTs on Cardano.
 ## Introduction
 This standard describes the separation of data and logic for on-chain NFTs. It
 is intended for generative on-chain art but it may also apply to other use
-cases. The main goal is to solve the four problems described below.
+cases. The main goal is to solve the three problems described below.
 
 ### **Problem 1**: Storage limit
 Cardano is very well suited for on-chain NFTs. Compared to other blockchains,
@@ -24,10 +24,6 @@ Sometimes it may not be feasible, or even impossible, to store all dependencies
 on the blockchain. Examples are p5.js, three.js, python or Blender to name a
 few. There is no clearly defined way to describe external dependencies in such a
 way that on-chain NFTs can be reproduced by third parties.
-
-### **Problem 4**: Inconsistent project properties
-Properties of existing projects are often messy and unstructured, with odd and
-inconsistent key names.
 
 ## Metadata
 The Venster Metadata Standard builds on the existing
