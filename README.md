@@ -75,20 +75,20 @@ Properties for the **scene** entity:
 
 #### Dynamic arguments
 
-Several dynamic variables can be passed as arguments to the renderer:
-- `@txhash` (`String`): transaction hash of the mint (can be used as the seed
+Several dynamic arguments can be passed to the renderer:
+- `@txhash` (`string`): transaction hash of the mint (can be used as the seed
   value for an Sfc32 PRNG for example)
-- `@txhashes` (`Array(String)`): an array of all transaction hashes of the token
-- `@epoch` (`Int32`): epoch in which the token was minted
-- `@slot` (`Int32`): slot in which the token was minted
-- `@block` (`Int32`): block in which the token was minted
-- `@block_size` (`Int32`): size of the block
-- `@block_output` (`String`): total output (Lovelace) of the block
-- `@current_epoch` (`Int32`): current (latest) epoch
-- `@current_slot` (`Int32`): current (latest) slot
-- `@current_block` (`Int32`): current (latest) minted block
-- `@current_block_size` (`Int32`): size of the current block
-- `@current_block_output` (`String`): total output (Lovelace) of the current block
+- `@txhashes` (`string[]`): an array of all transaction hashes of the token
+- `@epoch` (`number`): epoch in which the token was minted
+- `@slot` (`number`): slot in which the token was minted
+- `@block` (`number`): block in which the token was minted
+- `@block_size` (`number`): size of the block
+- `@block_output` (`string`): total output (Lovelace) of the block
+- `@current_epoch` (`number`): current (latest) epoch
+- `@current_slot` (`number`): current (latest) slot
+- `@current_block` (`number`): current (latest) minted block
+- `@current_block_size` (`number`): size of the current block
+- `@current_block_output` (`string`): total output (Lovelace) of the current block
 
 Dynamic arguments can be defined just like regular arguments:
 
