@@ -77,6 +77,34 @@ Properties for the **scene** entity:
 - **`properties`** (optional): an object with arbitrary key/value pairs
   describing the project
 
+#### Dynamic arguments
+
+Several dynamic variables can be passed as arguments to the renderer:
+- `@txhash` (`String`): transaction hash of the mint (can be used as the seed
+  value for an Sfc32 PRNG for example)
+- `@txhashes` (`Array(String)`): an array of all transaction hashes of the token
+- `@epoch` (`Int32`): epoch in which the token was minted
+- `@slot` (`Int32`): slot in which the token was minted
+- `@block` (`Int32`): block in which the token was minted
+- `@block_size` (`Int32`): size of the block
+- `@block_output` (`String`): total output (Lovelace) of the block
+- `@current_epoch` (`Int32`): current (latest) epoch
+- `@current_slot` (`Int32`): current (latest) slot
+- `@current_block` (`Int32`): current (latest) minted block
+- `@current_block_size` (`Int32`): size of the current block
+- `@current_block_output` (`String`): total output (Lovelace) of the current block
+
+Dynamic arguments can be defined just like regular arguments:
+
+```
+{
+  "number": 123,
+  "txhash": "@txhash",
+  "block": "@block",
+  "block_latest": "@current_block"
+}
+```
+
 ### **2**. Renderer
 The renderer token is part of the same `policy_id`. It can either be a
 self-contained program or one with dependencies. The code is stored in the

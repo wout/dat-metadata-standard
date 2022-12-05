@@ -21,7 +21,7 @@
         "renderer": {
           "main": "my_renderer",
           "arguments": {
-            "seed": 123
+            "slot": "@current_slot"
           }
         }
       }
