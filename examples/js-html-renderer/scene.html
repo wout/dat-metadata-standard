@@ -1,4 +1,4 @@
-<!-- This is an example of how a viewer renders a distributed on-chain NFT -->
+<!-- This is an example of how Venster.io will render a distributed on-chain JS NFT with HTL output -->
 <html>
 <head>
   <meta charset="utf-8">
@@ -11,6 +11,13 @@
     /* If present, css dependencies would be injected here */
     /* Contents of my_renderer.css will be injected here */
   </style>
+  <script>
+    // All arguments will be decared here
+    window.ARGV = {
+      seed: 123,
+      blockNumber: 8101302
+    }
+  </script>
   <!-- External dependencies will be injected below -->
   <script src="https://unpkg.com/p5@1.5"></script>
 </head>

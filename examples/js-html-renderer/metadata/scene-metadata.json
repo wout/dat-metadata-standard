@@ -21,7 +21,8 @@
         "renderer": {
           "main": "my_renderer",
           "arguments": {
-            "seed": 123
+            "seed": 123,
+            "blockNumber": "@block"
           }
         }
       }
