@@ -172,9 +172,9 @@ These are managed by the viewer and made available to the renderer on execution.
 ```
 
 ### **3**. Dependency
-A dependency token is part of the same `policy_id`. Its code is stored in the
-**`files`** property as-is or as a base64-encoded string. The `name` property of
-the file should match the `asset_name`.
+An internal dependency token is part of the same `policy_id`. Its code is stored
+in the **`files`** property as-is or as a base64-encoded string. The `name`
+property of the file should match the `asset_name`.
 
 ```
 {
