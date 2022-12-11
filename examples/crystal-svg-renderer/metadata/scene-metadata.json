@@ -16,9 +16,9 @@
 
         "renderer": {
           "main": "my_renderer",
-          "arguments": {
-            "slot": "@current_slot"
-          }
+          "arguments": [
+            "@current_slot"
+          ]
         }
       }
     }

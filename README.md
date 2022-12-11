@@ -59,7 +59,7 @@ contains all the information to render the NFT.
 
         "renderer": {
           "main": <renderer_asset_name>,
-          "arguments": <object>
+          "arguments": <array>
         }
       }
     }
@@ -71,8 +71,8 @@ Properties for the *scene* token:
 - **`renderer`** (required): an object with two properties
   - **`main`** (required): the `asset_name` of the renderer token within the
     current `policy_id` (e.g. `my_renderer`)
-  - **`arguments`** (required): an object with arbitrary key/value pairs used as
-    arguments for the invocation of the renderer (e.g. `{"seed": 123}`)
+  - **`arguments`** (required): an array with arbitrary values used as
+    arguments for the invocation of the renderer (e.g. `[123]`)
 
 #### Dynamic arguments
 

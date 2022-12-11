@@ -16,10 +16,10 @@
 
         "renderer": {
           "main": "my_renderer",
-          "arguments": {
-            "seed": 123,
-            "blockNumber": "@block"
-          }
+          "arguments": [
+            123,
+            "@block"
+          ]
         }
       }
     }
