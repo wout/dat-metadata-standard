@@ -95,19 +95,20 @@ Several dynamic arguments can be passed to the renderer:
 Dynamic arguments can be defined just like regular arguments:
 
 ```
-{
-  "number": 123,
-  "txhash": "@txhash",
-  "block": "@block",
-  "block_latest": "@current_block"
-}
+[
+  123,
+  "@txhash",
+  "@block",
+  "@current_block"
+]
 ```
 
 ### **2**. Renderer
 
 The *renderer* token is part of the same `policy_id`. It can either be a
-self-contained program or one with dependencies. Within the same policy,
-multiple *renderer* tokens can exist, but *scene* tokens can only reference one.
+self-contained on-chain program or one with dependencies. Within the same
+policy, multiple *renderer* tokens can exist, but *scene* tokens can only
+reference one at a time.
 
 The code is stored in the **`files`** property as-is or as a base64-encoded
 string. The `name` property of the file should match the `asset_name`.
