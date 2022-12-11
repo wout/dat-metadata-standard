@@ -99,9 +99,11 @@ Dynamic arguments can be defined just like regular arguments:
 
 ### **2**. Renderer
 The renderer token is part of the same `policy_id`. It can either be a
-self-contained program or one with dependencies. The code is stored in the
-**`files`** property as-is or as a base64-encoded string. The `name` property of
-the file should match the `asset_name`.
+self-contained program or one with dependencies. Within the same policy,
+multiple renderer tokens can exist.
+
+The code is stored in the **`files`** property as-is or as a base64-encoded
+string. The `name` property of the file should match the `asset_name`.
 
 ```
 {
