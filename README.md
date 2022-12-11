@@ -129,7 +129,9 @@ string. The `name` property of the file should match the `asset_name`.
         "dependencies": [{
           "type": <string>,
           <other_properties>
-        }]
+        }],
+
+        "license": <string | null>
       }
     }
   }
@@ -141,6 +143,8 @@ Properties for the *renderer* token:
   to the viewer to define de accepted formats)
 - **`dependencies`** (optional): an array of objects with dependency
   definitions
+- **`license`** (optional): name and url of the copyright license for the
+  renderer (e.g. `NFT License 2.0`; more info below)
 
 **Note**: The renderer token can be burned after minting to free up the UTxO.
 
@@ -180,6 +184,20 @@ These are off-chain dependencies managed by the viewer and made available to the
   "version": <version_number>
 }
 ```
+
+#### Licenses
+
+It is recommended to choose a license that aligns with the values of the
+creator. Popular licenses are:
+
+- [NFT License 2.0](https://www.nftlicense.org/)
+- [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)
+- [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+- [AGPL 3.0](https://www.gnu.org/licenses/agpl-3.0.en.html)
+
+
+Using [no license](https://choosealicense.com/no-permission/) is also an option
+to indicate that the software may not be used by anyone else than the creator.
 
 ### **3**. Dependency
 
