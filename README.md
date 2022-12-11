@@ -55,9 +55,7 @@ information to render the NFT.
         "renderer": {
           "main": <renderer_asset_name>,
           "arguments": <object>
-        },
-
-        "properties": <object | null>
+        }
       }
     }
   }
@@ -70,8 +68,6 @@ Properties for the **scene** entity:
     current `policy_id` (e.g. `my_renderer`)
   - **`arguments`** (required): an object with arbitrary key/value pairs used as
     arguments for the invocation of the renderer (e.g. `{"seed": 123}`)
-- **`properties`** (optional): an object with arbitrary key/value pairs
-  describing the project
 
 #### Dynamic arguments
 
