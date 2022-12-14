@@ -204,7 +204,8 @@ to indicate that the software may not be used by anyone else than the creator.
 
 A *dependency* token is part of the same `policy_id`. Its code is stored in the
 **`files`** property as-is or as a base64-encoded string. The `name` property of
-the file should match the `asset_name`.
+the file should match the `asset_name`. Optionally, every file can have a
+`license` property.
 
 ```
 {
