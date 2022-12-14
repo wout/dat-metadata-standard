@@ -1,4 +1,4 @@
-<!-- This is an example of how Venster.io will render a distributed on-chain JS
+<!-- This is an example of how Venster.io will set up a distributed on-chain JS
 NFT with HTML output -->
 <html>
 <head>
@@ -10,10 +10,6 @@ NFT with HTML output -->
     /* If present, css dependencies would be injected here */
     /* Contents of my_renderer.css will be injected here */
   </style>
-  <script>
-    // All arguments will be decared here in the order they were provided
-    window.ARGV = [123, 8101302] // => [<seed>, <blockNumber>]
-  </script>
   <!-- External dependencies will be injected below -->
   <script src="https://unpkg.com/p5@1.5"></script>
 </head>
@@ -23,6 +19,10 @@ NFT with HTML output -->
   <script>
     // Contents of my_dependency.js will be injected here
     // Contents of my_renderer.js will be injected here
+    //   Note: the renderer should implement a main function accpeting the
+    //         configured arguments in the same order
+    //   Example: main(<seed>, <blockNumber>)
+    main(123, 8101302)
   </script>
 </body>
 </html>
