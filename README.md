@@ -121,7 +121,8 @@ string. The `name` property of the file should match the `asset_name`.
         "files": [{
           "name": <asset_name>.<extension>,
           "mediaType": <mime_type>,
-          "src": <uri | array>
+          "src": <uri | array>,
+          <other_properties>
         }],
 
         "outputType": <mime_type>,
@@ -185,7 +186,7 @@ These are off-chain dependencies managed by the viewer and made available to the
 }
 ```
 
-#### Licenses
+### License types
 
 It is recommended to choose a license that aligns with the values of the
 creator. Popular licenses are:
@@ -213,7 +214,9 @@ the file should match the `asset_name`.
         "files": [{
           "name": <asset_name>.<extension>,
           "mediaType": <mime_type>,
-          "src": <uri | array>
+          "src": <uri | array>,
+          "license": <string | null>,
+          <other_properties>
         }]
       }
     }
