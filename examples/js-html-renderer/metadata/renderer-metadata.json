@@ -35,7 +35,7 @@
           },
           {
             "type": "external",
-            "name": "p5",
+            "name": "p5.js",
             "version": "1.5"
           }
         ]

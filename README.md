@@ -1,12 +1,10 @@
-# Venster Metadata Standard (Draft)
-A metadata standard for storing distributed on-chain NFTs on Cardano.
-
-**IMPORTANT**: This document is still a work in progress. 
+# Venster Metadata Standard (Beta)
+A metadata standard for storing modular on-chain NFTs on Cardano.
 
 ## Introduction
 This standard describes the separation of data and logic for on-chain NFTs. It
-is intended for generative on-chain art but it may also apply to other use
-cases. The main goal is to solve the three problems described below.
+is intended for generative on-chain art but it may also be suitable for other
+use cases. The main goal is to solve the three problems described below.
 
 ### **Problem 1**: Storage limit
 
@@ -23,10 +21,10 @@ or at the full capacity of the 16 kB limit.
 
 ### **Problem 3**: External dependencies
 
-Sometimes it may not be feasible, or even impossible, to store all dependencies
-on the blockchain. Examples are p5.js, three.js, python or Blender to name a
-few. There is no clearly defined way to describe external dependencies in such a
-way that on-chain NFTs can be reproduced by third parties.
+Storing all dependencies for a generative artwork on the blockchain isn't always
+an option. Examples are p5.js, three.js, python or Blender to name a few. There
+is no clearly defined way to describe external dependencies in such a way that
+on-chain NFTs can be reproduced by third parties.
 
 ## Metadata
 
@@ -37,7 +35,8 @@ standard and is divided into three separate entities.
 ### **1**. Scene
 
 The *scene* token is the part the end user will receive in their wallet. It
-contains all the information to render the NFT.
+contains all the information to render the NFT. This part adds a `renderer`
+property to the CIP 25 standard:
 
 ```
 {
