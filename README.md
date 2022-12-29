@@ -76,12 +76,12 @@ Properties for the *scene* token:
 #### Dynamic arguments
 
 Several dynamic arguments can be passed to the renderer:
-- `@txhash` (`string`): transaction hash of the mint (can be used as the seed
+- `@tx_hash` (`string`): transaction hash of the mint (can be used as the seed
   value for an Sfc32 PRNG for example)
-- `@txhashes` (`string[]`): an array of all transaction hashes of the token
 - `@epoch` (`number`): epoch in which the token was minted
 - `@slot` (`number`): slot in which the token was minted
 - `@block` (`number`): block in which the token was minted
+- `@block_hash` (`number`): size of the block
 - `@block_size` (`number`): size of the block
 - `@block_output` (`string`): total output (Lovelace) of the block
 - `@current_epoch` (`number`): current (latest) epoch
@@ -143,8 +143,8 @@ Properties for the *renderer* token:
   to the viewer to define de accepted formats)
 - **`dependencies`** (optional): an array of objects with dependency
   definitions
-- **`license`** (optional): name and url of the copyright license for the
-  renderer (e.g. `NFT License 2.0`; more info below)
+- **`license`** (optional): name of the copyright license for the renderer (e.g.
+  `NFT License 2.0`; more info below)
 
 **Note**: The renderer token can be burned after minting to free up the UTxO.
 
@@ -195,9 +195,8 @@ creator. Popular licenses are:
 - [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 - [AGPL 3.0](https://www.gnu.org/licenses/agpl-3.0.en.html)
 
-
 Using [no license](https://choosealicense.com/no-permission/) is also an option
-to indicate that the software may not be used by anyone else than the creator.
+to indicate that no one other than the creator may use the software.
 
 ### **3**. Dependency
 
