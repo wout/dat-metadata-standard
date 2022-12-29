@@ -83,13 +83,11 @@ Several dynamic arguments can be passed to the renderer:
 - `@block` (`number`): block in which the token was minted
 - `@block_size` (`number`): size of the block
 - `@block_hash` (`string`): hash of the block
-- `@block_output` (`string`): total output (Lovelace) of the block
 - `@current_epoch` (`number`): current (latest) epoch
 - `@current_slot` (`number`): current (latest) slot
 - `@current_block` (`number`): current (latest) minted block
 - `@current_block_size` (`number`): size of the current block
 - `@current_block_hash` (`string`): hash of the current block
-- `@current_block_output` (`string`): total output (Lovelace) of the current
   block
 
 Dynamic arguments can be defined just like regular arguments:
