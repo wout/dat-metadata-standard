@@ -76,7 +76,7 @@ Properties for the *scene* token:
 #### Dynamic arguments
 
 Several dynamic arguments can be passed to the renderer:
-- `@tx_hash` (`string`): transaction hash of the mint (can be used as the seed
+- `@tx_hash` (`string`): transaction hash of the purchase (can be used as the seed
   value for an Sfc32 PRNG for example)
 - `@epoch` (`number`): epoch in which the token was minted
 - `@slot` (`number`): slot in which the token was minted
