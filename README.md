@@ -88,7 +88,6 @@ Several dynamic arguments can be passed to the renderer:
 - `@current_block` (`number`): current (latest) minted block
 - `@current_block_size` (`number`): size of the current block
 - `@current_block_hash` (`string`): hash of the current block
-  block
 
 Dynamic arguments can be defined just like regular arguments:
 
