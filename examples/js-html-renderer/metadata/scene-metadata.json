@@ -8,12 +8,6 @@
         "image": "ipfs://QmxHKa4IXAt6LQaTOtDsvNjfysaMPtlFv0bpL0pwYyxixh",
         "mediaType": "image/png",
 
-        "files": [{
-          "name": "name-0123.png",
-          "mediaType": "image/png",
-          "src": "ipfs://QmxHKa4IXAt6LQaTOtDsvNjfysaMPtlFv0bpL0pwYyyjyi"
-        }],
-
         "renderer": {
           "main": "my_renderer",
           "arguments": [
