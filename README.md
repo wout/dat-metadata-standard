@@ -119,6 +119,7 @@ string. The `name` property of the file should match the `asset_name`.
           "name": <asset_name>.<extension>,
           "mediaType": <mime_type>,
           "src": <uri | array>,
+          "license": <string | null>,
           <other_properties>
         }],
 
@@ -127,9 +128,7 @@ string. The `name` property of the file should match the `asset_name`.
         "dependencies": [{
           "type": <string>,
           <other_properties>
-        }],
-
-        "license": <string | null>
+        }]
       }
     }
   }
@@ -141,8 +140,9 @@ Properties for the *renderer* token:
   to the viewer to define de supported formats)
 - **`dependencies`** (optional): an array of objects with dependency
   definitions
-- **`license`** (optional): name of the copyright license for the renderer (e.g.
-  `NFT License 2.0`; more info below)
+
+Please consider adding a **`license`** property to the renderer file(s). More
+info on licenses below.
 
 **Note**: The renderer token can be burned after minting to free up the UTxO.
 
