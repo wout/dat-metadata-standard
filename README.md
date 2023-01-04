@@ -138,7 +138,7 @@ string. The `name` property of the file should match the `asset_name`.
 
 Properties for the *renderer* token:
 - **`outputType`** (required): the mime type of the renderer's output (it's up
-  to the viewer to define de accepted formats)
+  to the viewer to define de supported formats)
 - **`dependencies`** (optional): an array of objects with dependency
   definitions
 - **`license`** (optional): name of the copyright license for the renderer (e.g.
