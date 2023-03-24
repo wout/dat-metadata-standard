@@ -70,7 +70,7 @@ Properties for the *scene* token:
     current `policy_id` (e.g. `my_renderer`)
   - **`arguments`** (required): an array with arbitrary values used as
     arguments for the invocation of the renderer (e.g. `[123]`)
-- **`properties`** (optional): an object with arbitrary key/value pairs
+- **`properties`** (optional): an object with arbitrary key/value pairs describing the tokens's (unique) properties
 
 #### Dynamic arguments
 
