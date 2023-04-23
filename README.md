@@ -80,7 +80,7 @@ Properties for the *scene* token:
 
 Several directives for dynamic arguments can be passed to the renderer:
 
-_**Current token**_
+_Current token_
 - `@tx_hash` (`string`): transaction hash of the mint (can be used as the seed value for a Sfc32 PRNG for example)
 - `@epoch` (`number`): epoch in which the token was minted
 - `@slot` (`number`): slot in which the token was minted
@@ -89,7 +89,7 @@ _**Current token**_
 - `@block_hash` (`string`): hash of the token's block
 - `@properties` (`object`): token's properties object
 
-_**Previously minted token**_
+_Previously minted token_
 - `@tx_hash.previous` (`string | null`): transaction hash
 - `@epoch.previous` (`number | null`): epoch in which the token was minted
 - `@slot.previous` (`number | null`): slot in which the token was minted
@@ -98,7 +98,7 @@ _**Previously minted token**_
 - `@block_hash.previous` (`string | null`): hash of the token's block
 - `@properties.previous` (`object | null`): token's properties object
 
-_**Specific token (within the same policy_id)**_
+_Specific token (within the same policy_id)_
 - `@tx_hash.asset_name` (`string | null`): transaction hash
 - `@epoch.asset_name` (`number | null`): epoch in which the token was minted
 - `@slot.asset_name` (`number | null`): slot in which the token was minted
@@ -107,7 +107,7 @@ _**Specific token (within the same policy_id)**_
 - `@block_hash.asset_name` (`string | null`): hash of the previous token's block
 - `@properties.asset_name` (`object | null`): previous token's properties object
 
-_**Current blockchain state**_
+_Current blockchain state_
 - `@current_epoch` (`number`): current (latest) epoch
 - `@current_slot` (`number`): current (latest) slot
 - `@current_block` (`number`): current (latest) minted block
