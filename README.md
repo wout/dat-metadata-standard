@@ -79,20 +79,31 @@ Properties for the *scene* token:
 #### Directives
 
 Several directives for dynamic arguments can be passed to the renderer:
-- `@tx_hash` (`string`): transaction hash of the mint (can be used as the seed value for an Sfc32 PRNG for example)
+_**Current token**_
+- `@tx_hash` (`string`): transaction hash of the mint (can be used as the seed value for a Sfc32 PRNG for example)
 - `@epoch` (`number`): epoch in which the token was minted
 - `@slot` (`number`): slot in which the token was minted
 - `@block` (`number`): block in which the token was minted
 - `@block_size` (`number`): size of the token's block
 - `@block_hash` (`string`): hash of the token's block
 - `@properties` (`object`): token's properties object
-- `@previous_tx_hash` (`string`): transaction hash of the previous mint
-- `@previous_epoch` (`number`): epoch in which the previous token was minted
-- `@previous_slot` (`number`): slot in which the previous token was minted
-- `@previous_block` (`number`): block in which the previous token was minted
-- `@previous_block_size` (`number`): size of the previous token's block
-- `@previous_block_hash` (`string`): hash of the previous token's block
-- `@previous_properties` (`object`): previous token's properties object
+_**Previously minted token**_
+- `@tx_hash.previous` (`string | null`): transaction hash
+- `@epoch.previous` (`number | null`): epoch in which the token was minted
+- `@slot.previous` (`number | null`): slot in which the token was minted
+- `@block.previous` (`number | null`): block in which the token was minted
+- `@block_size.previous` (`number | null`): size of the token's block
+- `@block_hash.previous` (`string | null`): hash of the token's block
+- `@properties.previous` (`object | null`): token's properties object
+_**Specific token (within the same policy_id)**_
+- `@tx_hash.asset_name` (`string | null`): transaction hash
+- `@epoch.asset_name` (`number | null`): epoch in which the token was minted
+- `@slot.asset_name` (`number | null`): slot in which the token was minted
+- `@block.asset_name` (`number | null`): block in which the token was minted
+- `@block_size.asset_name` (`number | null`): size of the previous token's block
+- `@block_hash.asset_name` (`string | null`): hash of the previous token's block
+- `@properties.asset_name` (`object | null`): previous token's properties object
+_**Current blockchain state**_
 - `@current_epoch` (`number`): current (latest) epoch
 - `@current_slot` (`number`): current (latest) slot
 - `@current_block` (`number`): current (latest) minted block
@@ -106,7 +117,9 @@ Directives can be defined just like regular arguments:
   123,
   "@tx_hash",
   "@block",
-  "@current_block"
+  "@current_block",
+  "@epoch.previous",
+  "@properties.the_perfect_nft_000"
 ]
 ```
 
