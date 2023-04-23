@@ -42,6 +42,7 @@ The *scene* token is the part the end user will receive in their wallet. It cont
 
         "image": <uri | array>,
         "mediaType": image/<mime_sub_type>,
+        "blurhash": <string>,
         
         "files": [{
           "name": <string>,
@@ -71,10 +72,13 @@ Properties for the *scene* token:
   - **`arguments`** (required): an array with arbitrary values used as
     arguments for the invocation of the renderer (e.g. `[123]`)
 - **`properties`** (optional): an object with arbitrary key/value pairs describing the token's (unique) properties
+- **`blurhash`** (optional): a thumb image placeholder using the [blurhash algorithm](https://github.com/woltapp/blurhash)
 
-#### Dynamic arguments
+**Note**: A `blurhash` can be used instead of the `image` property to remove the external storage dependency (IPFS, Arweave, ...). That way, the token is fully on-chain. Wallets or viewers can use it as a stand-in thumb image without the overhead or rendering the complete token. Blurhash strings can be rendered on a canvas element or converted to a base64 png data string by clients.
 
-Several dynamic arguments can be passed to the renderer:
+#### Directives
+
+Several directives for dynamic arguments can be passed to the renderer:
 - `@tx_hash` (`string`): transaction hash of the mint (can be used as the seed value for an Sfc32 PRNG for example)
 - `@epoch` (`number`): epoch in which the token was minted
 - `@slot` (`number`): slot in which the token was minted
