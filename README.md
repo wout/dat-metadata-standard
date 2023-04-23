@@ -12,13 +12,13 @@ Cardano is very well suited for on-chain NFTs. Compared to other blockchains,
 Cardano has the lowest L1 storage cost per kB, but the maximum transaction size
 of 16 kB is more limited in comparison to other chains.
 
-### **Problem 2**: Inefficient use of storage
+### **Problem 2**: Inefficient use of block space
 
 Some existing on-chain projects on Cardano make inefficient use of block space by repeatedly storing the same monolithic blob accompanied by a few unique parameters. This results in thousands of copies of the same code, often close to or at the full capacity of the 16 kB limit.
 
 ### **Problem 3**: External dependencies
 
-Storing all dependencies for a generative artwork on the blockchain isn't always an option. Examples are p5.js, three.js, python or Blender to name a few. There is no clearly defined way to describe external dependencies in such a way that on-chain NFTs can be reproduced by third parties.
+Storing all dependencies for a generative artwork on the blockchain isn't always an option. Examples are p5.js, three.js, python or Blender, to name a few. There is no clearly defined way to describe external dependencies in such a way that on-chain NFTs can be reproduced by third parties.
 
 ### **Problem 4**: NFT properties
 
