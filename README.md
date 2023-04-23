@@ -99,7 +99,7 @@ Several directives for dynamic arguments can be passed to the renderer:
 - `@current_block_size` (`number`): size of the current block
 - `@current_block_hash` (`string`): hash of the current block
 
-Dynamic arguments can be defined just like regular arguments:
+Directives can be defined just like regular arguments:
 
 ```
 [
@@ -143,7 +143,7 @@ The code is stored in the **`files`** property as-is or as a base64-encoded stri
 
 Properties for the *renderer* token:
 - **`outputType`** (required): the mime type of the renderer's output (it's up
-  to the viewer to define de supported formats)
+  to the viewer to define the supported formats)
 - **`dependencies`** (optional): an array of objects with dependency
   definitions
 
