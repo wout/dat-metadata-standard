@@ -56,7 +56,7 @@ The *scene* token is the part the end user will receive in their wallet. It cont
         },
 
         "renderer": {
-          "main": <renderer_asset_name>,
+          "main": <asset_name>,
           "arguments": <array>
         }
       }
@@ -87,7 +87,6 @@ _Current token_
 - `@block` (`number`): block in which the token was minted
 - `@block_size` (`number`): size of the token's block
 - `@block_hash` (`string`): hash of the token's block
-- `@properties` (`object`): token's properties object
 
 _Previously minted token_
 - `@tx_hash.previous` (`string | null`): transaction hash
@@ -96,16 +95,16 @@ _Previously minted token_
 - `@block.previous` (`number | null`): block in which the token was minted
 - `@block_size.previous` (`number | null`): size of the token's block
 - `@block_hash.previous` (`string | null`): hash of the token's block
-- `@properties.previous` (`object | null`): token's properties object
+- `@arguments.previous` (`array | null`): token's renderer arguments
 
 _Specific token (within the same policy_id)_
 - `@tx_hash.asset_name` (`string | null`): transaction hash
 - `@epoch.asset_name` (`number | null`): epoch in which the token was minted
 - `@slot.asset_name` (`number | null`): slot in which the token was minted
 - `@block.asset_name` (`number | null`): block in which the token was minted
-- `@block_size.asset_name` (`number | null`): size of the previous token's block
-- `@block_hash.asset_name` (`string | null`): hash of the previous token's block
-- `@properties.asset_name` (`object | null`): previous token's properties object
+- `@block_size.asset_name` (`number | null`): size of the specific token's block
+- `@block_hash.asset_name` (`string | null`): hash of the specific token's block
+- `@arguments.asset_name` (`array | null`): specific token's renderer arguments
 
 _Current blockchain state_
 - `@current_epoch` (`number`): current (latest) epoch
@@ -123,9 +122,11 @@ Directives can be defined just like regular arguments:
   "@block",
   "@current_block",
   "@epoch.previous",
-  "@properties.the_perfect_nft_000"
+  "@arguments.the_perfect_nft_000"
 ]
 ```
+
+**Note**: Referencing another token's arguments does not work recursively.
 
 ### **2**. Renderer
 
