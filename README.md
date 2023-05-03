@@ -216,6 +216,8 @@ Using [no license](https://choosealicense.com/no-permission/) is also an option 
 
 A *dependency* token is part of the same `policy_id`. Its code is stored in the **`files`** property as-is or as a base64-encoded string. The `name` property of the file should match the `asset_name`. Similar to the *renderer*, every file can have an individual `license` property.
 
+Dependencies can consist of multiple parts if they don't fit into one 16kB transaction. The dependency referenced from the renderer serves as an entrypoint referencing the additional parts. Viewers can decide how many parts to allow or support.
+
 ```
 {
   "721": {
@@ -227,14 +229,21 @@ A *dependency* token is part of the same `policy_id`. Its code is stored in the 
           "src": <uri | array>,
           "license": <string | null>,
           <other_properties>
-        }]
+        }],
+
+        "parts": [
+          <part_asset_name>
+        ]
       }
     }
   }
 }
 ```
 
-**Note**: Dependency tokens can be burned after minting to free up the UTxOs.
+Properties for the *dependency* token:
+- **`parts`** (optional): an array with asset names (e.g. `asset_name_part_2`)
+
+**Note**: Dependency tokens should be burned after minting to free up the UTxOs.
 
 ## License
 Venster Metadata Standard is licensed under
