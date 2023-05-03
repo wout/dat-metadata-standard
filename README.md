@@ -160,14 +160,12 @@ The code is stored in the **`files`** property as-is or as a base64-encoded stri
 ```
 
 Properties for the *renderer* token:
-- **`outputType`** (required): the mime type of the renderer's output (it's up
-  to the viewer to define the supported formats)
-- **`dependencies`** (optional): an array of objects with dependency
-  definitions
+- **`outputType`** (required): the mime type of the renderer's output (it's up to the viewer to define the supported formats)
+- **`dependencies`** (optional): an array of objects with dependency definitions
 
 Please consider adding a **`license`** property to the renderer file(s). More info on licenses below.
 
-**Note**: The renderer token can be burned after minting to free up the UTxO.
+**Note**: The renderer token should be burned after minting to free up the UTxO.
 
 #### On-chain dependencies
 
@@ -176,7 +174,7 @@ These are project-specific dependencies managed by the minter. They should be mi
 ```
 {
   "type": "onchain",
-  "asset_name": <dependency_asset_name>
+  "asset_name": <asset_name>
 }
 ```
 
