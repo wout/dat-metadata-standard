@@ -2,9 +2,7 @@
 A metadata standard for storing modular on-chain NFTs on Cardano.
 
 ## Introduction
-This standard describes the separation of data and logic for on-chain NFTs. It
-is intended for generative on-chain art but it may also be suitable for other
-use cases. The main goal is to solve the four problems described below.
+This standard describes the separation of data and logic for on-chain NFTs. It is intended for generative on-chain art but it may also be suitable for other use cases. The main goal is to solve the four problems described below.
 
 ### **Problem 1**: Storage limit
 
@@ -66,17 +64,17 @@ The *scene* token is the part the end user will receive in their wallet. It cont
 ```
 
 Properties for the *scene* token:
-- **`renderer`** (required): an object with two properties
-  - **`main`** (required): the `asset_name` of the renderer token within the
+- **`renderer`** (_required_): an object with two properties
+  - **`main`** (_required_): the `asset_name` of the renderer token within the
     current `policy_id` (e.g. `my_renderer`)
-  - **`arguments`** (required): an array with arbitrary values used as
+  - **`arguments`** (_required_): an array with arbitrary values used as
     arguments for the invocation of the renderer (e.g. `[123]`)
-- **`properties`** (optional): an object with arbitrary key/value pairs describing the token's (unique) properties
-- **`blurhash`** (optional): a thumb image placeholder using the [blurhash algorithm](https://github.com/woltapp/blurhash)
+- **`properties`** (_optional_): an object with arbitrary key/value pairs describing the token's (unique) properties
+- **`blurhash`** (_optional_): a thumb image placeholder using the [blurhash algorithm](https://github.com/woltapp/blurhash)
 
 **Note**: A `blurhash` can be used instead of the `image` property to remove the external storage dependency (IPFS, Arweave, ...). That way, the token is fully on-chain. Wallets or viewers can use it as a stand-in thumb image without the overhead or rendering the complete token. Blurhash strings can be rendered on a canvas element or converted to a base64 png data string by clients.
 
-#### Directives
+#### **1.a.** Directives
 
 Several directives for dynamic arguments can be passed to the renderer:
 
@@ -102,9 +100,9 @@ _Specific token (within the same policy_id)_
 - `@epoch.asset_name` (`number | null`): epoch in which the token was minted
 - `@slot.asset_name` (`number | null`): slot in which the token was minted
 - `@block.asset_name` (`number | null`): block in which the token was minted
-- `@block_size.asset_name` (`number | null`): size of the specific token's block
-- `@block_hash.asset_name` (`string | null`): hash of the specific token's block
-- `@arguments.asset_name` (`array | null`): specific token's renderer arguments
+- `@block_size.asset_name` (`number | null`): size of the token's block
+- `@block_hash.asset_name` (`string | null`): hash of the token's block
+- `@arguments.asset_name` (`array | null`): token's renderer arguments
 
 _Current blockchain state_
 - `@current_epoch` (`number`): current (latest) epoch
@@ -132,7 +130,7 @@ Directives can be defined just like regular arguments:
 
 The *renderer* token is part of the same `policy_id`. It can either be a self-contained on-chain program or one with dependencies. Within the same policy, multiple *renderer* tokens can exist, but *scene* tokens can only reference one at a time.
 
-The code is stored in the **`files`** property as-is or as a base64-encoded string. The `name` property of the file should match the `asset_name`.
+The code is stored in the `files` property as-is or as a base64-encoded string. The `name` property of the file should match the `asset_name`.
 
 ```
 {
@@ -160,14 +158,14 @@ The code is stored in the **`files`** property as-is or as a base64-encoded stri
 ```
 
 Properties for the *renderer* token:
-- **`outputType`** (required): the mime type of the renderer's output (it's up to the viewer to define the supported formats)
-- **`dependencies`** (optional): an array of objects with dependency definitions
+- **`outputType`** (_required_): the mime type of the renderer's output (it's up to the viewer to define the supported formats)
+- **`dependencies`** (_optional_): an array of objects with dependency definitions
 
-Please consider adding a **`license`** property to the renderer file(s). More info on licenses below.
+Each file in the `files` section should have a **`license`** property. It's not mandatory but advisable. More info on licenses below.
 
 **Note**: The renderer token should be burned after minting to free up the UTxO.
 
-#### On-chain dependencies
+#### **2.a.** On-chain dependencies
 
 These are project-specific dependencies managed by the minter. They should be minted within the same `policy_id`.
 
@@ -178,7 +176,7 @@ These are project-specific dependencies managed by the minter. They should be mi
 }
 ```
 
-#### Internal dependencies:
+#### **2.b.** Internal dependencies:
 
 These are on-chain dependencies managed by the viewer and made available to the *renderer* on execution.
 
@@ -189,7 +187,7 @@ These are on-chain dependencies managed by the viewer and made available to the 
 }
 ```
 
-#### External dependencies:
+#### **2.c.** External dependencies:
 
 These are off-chain dependencies managed by the viewer and made available to the *renderer* on execution.
 
@@ -201,7 +199,7 @@ These are off-chain dependencies managed by the viewer and made available to the
 }
 ```
 
-### License types
+#### **2.d.** License types
 
 It is recommended to choose a license that aligns with the values of the creator. Popular licenses are:
 
@@ -241,7 +239,7 @@ Dependencies can consist of multiple parts if they don't fit into one 16kB trans
 ```
 
 Properties for the *dependency* token:
-- **`parts`** (optional): an array with asset names (e.g. `asset_name_part_2`)
+- **`parts`** (_optional_): an array with asset names (e.g. `asset_name_part_2`)
 
 **Note**: Dependency tokens should be burned after minting to free up the UTxOs.
 
