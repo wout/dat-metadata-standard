@@ -30,7 +30,7 @@ The Venster Metadata Standard builds on the existing [CIP-0025](https://github.c
 
 The *scene* token is the part the end user will receive in their wallet. It contains all the information to render the NFT. This part adds a `renderer` property to the CIP 25 standard:
 
-```
+```cddl
 {
   "721": {
     "<policy_id>": {
@@ -73,7 +73,7 @@ Properties for the *scene* token:
 - **`properties`** (_optional_): an object with arbitrary key/value pairs describing the token's (unique) properties
 - **`blurhash`** (_optional_): a thumb image placeholder using the [blurhash algorithm](https://github.com/woltapp/blurhash)
 
-**Note**: A `blurhash` can be used instead of the `image` property to remove the external storage dependency (IPFS, Arweave, ...). That way, the token is fully on-chain. Wallets or viewers can use it as a stand-in thumb image without the overhead or rendering the complete token. Blurhash strings can be rendered on a canvas element or converted to a base64 png data string by clients.
+**Note**: A `blurhash` can be used instead of the `image` property to remove the external storage dependency (IPFS, Arweave, ...). Wallets or viewers can use it as a stand-in thumb image without the overhead of immediately rendering the complete token. Blurhash strings are small (20-30 characters) and can be rendered on a canvas element or converted to a base64 png data string.
 
 #### **1.a.** Directives
 
@@ -114,7 +114,7 @@ _Current blockchain state_
 
 Directives can be defined just like regular arguments:
 
-```
+```json
 [
   123,
   "@tx_hash",
@@ -133,7 +133,9 @@ The *renderer* token is part of the same `policy_id`. It can either be a self-co
 
 The code is stored in the `files` property as-is or as a base64-encoded string. The `name` property of the file should match the `asset_name`.
 
-```
+Instructions and/or requirements to reproduce the artwork can be stored in the `instructions` property. For browser-based artworks, this could include the current browser version(s) in which it works. For projects running locally, it could be the configuration file of the package manager.
+
+```cddl
 {
   "721": {
     "<policy_id>": {
@@ -142,7 +144,7 @@ The code is stored in the `files` property as-is or as a base64-encoded string. 
           "name": <asset_name>.<extension>,
           "mediaType": <mime_type>,
           "src": <uri | array>,
-          "license": <string | null>,
+          "license": <string>,
           <other_properties>
         }],
 
@@ -151,7 +153,9 @@ The code is stored in the `files` property as-is or as a base64-encoded string. 
         "dependencies": [{
           "type": <string>,
           <other_properties>
-        }]
+        }],
+
+        "instructions": <string | array>
       }
     }
   }
@@ -161,8 +165,9 @@ The code is stored in the `files` property as-is or as a base64-encoded string. 
 Properties for the *renderer* token:
 - **`outputType`** (_required_): the mime type of the renderer's output (it's up to the viewer to define the supported formats)
 - **`dependencies`** (_optional_): an array of objects with dependency definitions
+- **`instructions`** (_optional_): a text string or an array of text strings
 
-Each file in the `files` section should have a **`license`** property. It's not mandatory but advisable. More info on licenses below.
+While not mandatory, it's advisable to add a **`license`** property to each file in the `files` section. More info on licenses below.
 
 **Note**: The renderer token should be burned after minting to free up the UTxO.
 
@@ -170,7 +175,7 @@ Each file in the `files` section should have a **`license`** property. It's not 
 
 These are project-specific dependencies managed by the minter. They should be minted within the same `policy_id`.
 
-```
+```cddl
 {
   "type": "onchain",
   "asset_name": <asset_name>
@@ -181,7 +186,7 @@ These are project-specific dependencies managed by the minter. They should be mi
 
 These are on-chain dependencies managed by the viewer and made available to the *renderer* on execution.
 
-```
+```cddl
 {
   "type": "internal",
   "fingerprint": <asset_fingerprint>
@@ -192,7 +197,7 @@ These are on-chain dependencies managed by the viewer and made available to the 
 
 These are off-chain dependencies managed by the viewer and made available to the *renderer* on execution.
 
-```
+```cddl
 {
   "type": "external",
   "name": <library_name>,
@@ -217,7 +222,7 @@ A *dependency* token is part of the same `policy_id`. Its code is stored in the 
 
 Dependencies can consist of multiple parts if they don't fit into one 16kB transaction. The dependency referenced from the renderer serves as an entrypoint referencing the additional parts. Viewers can decide how many parts to allow or support.
 
-```
+```cddl
 {
   "721": {
     "<policy_id>": {
@@ -241,6 +246,8 @@ Dependencies can consist of multiple parts if they don't fit into one 16kB trans
 
 Properties for the *dependency* token:
 - **`parts`** (_optional_): an array with asset names (e.g. `asset_name_part_2`)
+
+While not mandatory, it's advisable to add a **`license`** property to each file in the `files` section. More info on licenses below.
 
 **Note**: Dependency tokens should be burned after minting to free up the UTxOs.
 
