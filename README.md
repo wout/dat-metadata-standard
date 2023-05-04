@@ -46,6 +46,7 @@ The *scene* token is the part the end user will receive in their wallet. It cont
           "name": <string>,
           "mediaType": <mime_type>,
           "src": <uri | array>,
+          "license": <string>,
           <other_properties>
         }],
 
