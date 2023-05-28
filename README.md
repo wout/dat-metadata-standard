@@ -167,7 +167,7 @@ Properties for the *renderer* token:
 - **`dependencies`** (_optional_): an array of objects with dependency definitions
 - **`instructions`** (_optional_): a text string or an array of text strings
 
-While not mandatory, it's advisable to add a **`license`** property to each file in the `files` section. More info on licenses below in [section 2.d.](https://github.com/venster-io/venster-metadata-standard#2d-license-types).
+While not mandatory, it's advisable to add a **`license`** property to each file in the `files` section. More info on licenses below in [section 2.d.](https://github.com/venster-io/venster-metadata-standard#2d-license-types)
 
 **Note**: The renderer token should be burned after minting to free up the UTxO.
 
