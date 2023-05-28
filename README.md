@@ -133,7 +133,7 @@ The *renderer* token is part of the same `policy_id`. It can either be a self-co
 
 The code is stored in the `files` property as-is or as a base64-encoded string. The `name` property of the file should match the `asset_name`.
 
-Instructions and/or requirements to reproduce the artwork can be stored in the `instructions` property. For browser-based artworks, this could include the current browser version(s) in which it works. For projects running locally, it could be the configuration file of the package manager.
+Instructions and/or requirements to reproduce the artwork can be stored in the `instructions` property. For browser-based artworks, this could include the current browser version(s) in which it works. For projects executed locally, it could be the configuration file of the package manager.
 
 ```cddl
 {
@@ -167,7 +167,7 @@ Properties for the *renderer* token:
 - **`dependencies`** (_optional_): an array of objects with dependency definitions
 - **`instructions`** (_optional_): a text string or an array of text strings
 
-While not mandatory, it's advisable to add a **`license`** property to each file in the `files` section. More info on licenses below.
+While not mandatory, it's advisable to add a **`license`** property to each file in the `files` section. More info on licenses below in [section 2.d.](https://github.com/venster-io/venster-metadata-standard#2d-license-types).
 
 **Note**: The renderer token should be burned after minting to free up the UTxO.
 
@@ -257,7 +257,7 @@ Dependencies can consist of multiple parts if they don't fit into one 16kB trans
 Properties for the *dependency* token:
 - **`parts`** (_optional_): an array with asset names (e.g. `asset_name_part_2`)
 
-While not mandatory, it's advisable to add a **`license`** property to each file in the `files` section. More info on licenses below.
+While not mandatory, it's advisable to add a **`license`** property to each file in the `files` section. More info on licenses in [section 2.d.](https://github.com/venster-io/venster-metadata-standard#2d-license-types).
 
 **Note**: Dependency tokens should be burned after minting to free up the UTxOs.
 
