@@ -193,6 +193,16 @@ These are on-chain dependencies managed by the viewer and made available to the 
 }
 ```
 
+Or
+
+```cddl
+{
+  "type": "internal",
+  "policy_id": <policy_id>,
+  "asset_name": <asset_name>
+}
+```
+
 #### **2.c.** External dependencies:
 
 These are off-chain dependencies managed by the viewer and made available to the *renderer* on execution.
