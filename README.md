@@ -257,7 +257,7 @@ Dependencies can consist of multiple parts if they don't fit into one 16kB trans
 Properties for the *dependency* token:
 - **`parts`** (_optional_): an array with asset names (e.g. `asset_name_part_2`)
 
-While not mandatory, it's advisable to add a **`license`** property to each file in the `files` section. More info on licenses in [section 2.d.](https://github.com/venster-io/venster-metadata-standard#2d-license-types).
+While not mandatory, it's advisable to add a **`license`** property to each file in the `files` section. More info on licenses in [section 2.d.](https://github.com/venster-io/venster-metadata-standard#2d-license-types)
 
 **Note**: Dependency tokens should be burned after minting to free up the UTxOs.
 
