@@ -40,7 +40,6 @@ The *scene* token is the part the end user will receive in their wallet. It cont
 
         "image": <uri | array>,
         "mediaType": image/<mime_sub_type>,
-        "blurhash": <string>,
         
         "files": [{
           "name": <string>,
@@ -71,16 +70,16 @@ Properties for the *scene* token:
   - **`arguments`** (_required_): an array with arbitrary values used as
     arguments for the invocation of the renderer (e.g. `[123]`)
 - **`properties`** (_optional_): an object with arbitrary key/value pairs describing the token's (unique) properties
-- **`blurhash`** (_optional_): a thumb image placeholder using the [blurhash algorithm](https://github.com/woltapp/blurhash)
 
-**Note**: A `blurhash` can be used instead of the `image` property to remove the external storage dependency (IPFS, Arweave, ...). Wallets or viewers can use it as a stand-in thumb image without the overhead of immediately rendering the complete token. Blurhash strings are small (20-30 characters) and can be rendered on a canvas element or converted to a base64 png data string.
 
-#### **1.a.** Directives
+**Note**: If a DAT uses data from the blockchain to drive its generative algorithm, it's impossible to generate a thumbnail image before the mint. So the preview image for wallets and marketplaces should be treated more as an album cover than a visual representation of the actual artifact.
+
+#### **1.a.** Argument directives
 
 Several directives for dynamic arguments can be passed to the renderer:
 
 _Current token_
-- `@tx_hash` (`string`): transaction hash of the mint (can be used as the seed value for a Sfc32 PRNG for example)
+- `@tx_hash` (`string`): transaction hash of the mint (can for example be used as the seed value for a Sfc32 PRNG)
 - `@epoch` (`number`): epoch in which the token was minted
 - `@slot` (`number`): slot in which the token was minted
 - `@block` (`number`): block in which the token was minted
