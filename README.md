@@ -117,7 +117,7 @@ _Current blockchain state_
 - `@current_block_size` (`number`): size of the current block
 - `@current_block_hash` (`string`): hash of the current block
 
-Directives can be defined just like regular arguments:
+Arguments directives can be passed to the renderer just like regular arguments:
 
 ```json
 [
@@ -134,11 +134,11 @@ Directives can be defined just like regular arguments:
 
 ### **2**. Renderer
 
-The *renderer* token is part of the same `policy_id`. It can either be a self-contained on-chain program or one with dependencies. Within the same policy, multiple *renderer* tokens can exist, but *scene* tokens can only reference one at a time.
+The *renderer* token is part of the same `policy_id`. It can either be a self-contained program or one with dependencies. Within the same policy, multiple *renderer* tokens can exist, but *scene* tokens can only reference one at a time.
 
 The code is stored in the `files` property as-is or as a base64-encoded string. The `name` property of the file should match the `asset_name`.
 
-Instructions and/or requirements to reproduce the artwork can be stored in the `instructions` property. For browser-based artworks, this could include the current browser version(s) in which it works. For projects executed locally, it could be the configuration file of the package manager.
+Instructions and/or requirements to reproduce the token can be stored in the `instructions` property. For browser-based artworks, this should include the current browser version(s) in which it works. For projects executed locally, it should be a dependency file for a package manager (examples below).
 
 ```cddl
 {
@@ -222,7 +222,7 @@ These are off-chain dependencies managed by the viewer and made available to the
 
 #### **2.d.** License types
 
-It is recommended to choose a license that aligns with the values of the creator. Popular licenses are:
+It is recommended to choose a license that aligns with the values of the creator and purpose of the digital artifact. Popular licenses are:
 
 - [NFT License 2.0](https://www.nftlicense.org/)
 - [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)
@@ -235,7 +235,7 @@ Using [no license](https://choosealicense.com/no-permission/) is also an option 
 
 A *dependency* token is part of the same `policy_id`. Its code is stored in the **`files`** property as-is or as a base64-encoded string. The `name` property of the file should match the `asset_name`. Similar to the *renderer*, every file can have an individual `license` property.
 
-Dependencies can consist of multiple parts if they don't fit into one 16kB transaction. The dependency referenced from the renderer serves as an entrypoint referencing the additional parts. Viewers can decide how many parts to allow or support.
+Dependencies can consist of multiple parts if they don't fit into one 16kB transaction. The dependency referenced from the renderer serves as an entrypoint referencing the additional parts, and should contains the first part as well. Viewers can decide how many parts to allow or support.
 
 ```cddl
 {
