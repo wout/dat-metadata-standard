@@ -24,7 +24,7 @@ As it is right now, a token's root namespace is often polluted with arbitrary ke
 
 ## DATs
 
-Generative tokens creating following this standard are called **Distributed Artifact Tokens**, or **DAT**s. They can be fungible, semi-fungible or non-fungible. They are not necessarily a replacement for NFTs, but rather a separate class of token in their own right.
+Generative tokens created following this standard are called **Distributed Artifact Tokens**, or **DAT**s. They can be fungible, semi-fungible or non-fungible. They are not necessarily a replacement for NFTs, but rather a separate class of token in their own right.
 
 Aside from their distributed nature, DATs can query information about the current state of the blockchain, from their own mint transaction, and from previously minted tokens to create inter-linked token collections. In that sense, DATs facilitate artists to create art _with_ the blockchain.
 
