@@ -1,34 +1,40 @@
-# Venster Metadata Standard (Beta)
-A metadata standard for storing modular on-chain NFTs on Cardano.
+# DAT Metadata Standard
+
+A metadata standard for storing Distributed Artifact Tokens, or DATs, on the Cardano blockchain.
 
 ## Introduction
-This standard describes the separation of data and logic for on-chain NFTs. It is intended for generative on-chain art but it may also be suitable for other use cases. The main goal is to solve the four problems described below.
+
+This standard is intended for on-chain generative art but may also be suitable for other use cases. In essence, it describes a method to store generative tokens on the blockchain in a distributed and space-efficient way using Cardano's Native Tokens. Its main goal is to solve the four problems described below.
 
 ### **Problem 1**: Storage limit
 
-Cardano is very well suited for on-chain NFTs. Compared to other blockchains,
-Cardano has the lowest L1 storage cost per kB, but the maximum transaction size
-of 16 kB is more limited in comparison to other chains.
+Cardano is very well suited for on-chain generative art. Compared to other blockchains, it has the lowest L1 storage cost per kB, but the maximum transaction size of 16 kB is more limited in comparison to other chains.
 
 ### **Problem 2**: Inefficient use of block space
 
-Some existing on-chain projects on Cardano make inefficient use of block space by repeatedly storing the same monolithic blob accompanied by a few unique parameters. This results in thousands of copies of the same code, often close to or at the full capacity of the 16 kB limit.
+Some existing on-chain projects on Cardano make inefficient use of block space by repeatedly storing the same monolithic blob accompanied by a few unique parameters. The result is thousands of copies of the same code, close to or at the full capacity of the 16 kB limit.
 
 ### **Problem 3**: External dependencies
 
-Storing all dependencies for a generative artwork on the blockchain isn't always an option. Examples are p5.js, three.js, python or Blender, to name a few. There is no clearly defined way to describe external dependencies in such a way that on-chain NFTs can be reproduced by third parties.
+Storing all dependencies for a generative token on the blockchain isn't always convenient or even viable. Examples are p5.js, three.js, python or Blender, to name a few. There is no clearly defined way to describe external dependencies so that digital artifacts can be easily reproduced by third parties.
 
-### **Problem 4**: NFT properties
+### **Problem 4**: Token properties
 
-An asset's root namespace is often polluted with arbitrary key/value pairs. It makes sense to constrain token-specific properties to a `properties` object, making it easier for viewers to locate and render those values.
+As it is right now, a token's root namespace is often polluted with arbitrary key/value pairs. It makes sense to constrain token-specific properties to a `properties` object, making it easier for viewers to locate and render those values.
+
+## DATs
+
+Generative tokens produced by this standard are called **Distributed Artifact Tokens**, or **DAT**s. They can be fungible, semi-fungible or non-fungible. They are not necessarily a replacement for NFTs, but rather a separate class of token in their own right.
+
+Aside from their distributed nature, DATs can query information about the current state of the blockchain, from their own mint transaction, and from previously minted tokens to create inter-linked token collections. In that sense, DATs facilitate artists to create art _with_ the blockchain.
 
 ## Metadata
 
-The Venster Metadata Standard builds on the existing [CIP-0025](https://github.com/cardano-foundation/CIPs/tree/master/CIP-0025) standard and is divided into three separate entities.
+The DAT Metadata Standard builds on the existing [CIP-0025](https://github.com/cardano-foundation/CIPs/tree/master/CIP-0025) standard and is divided into three separate entities.
 
 ### **1**. Scene
 
-The *scene* token is the part the end user will receive in their wallet. It contains all the information to render the NFT. This part adds a `renderer` property to the CIP 25 standard:
+The *scene* token is the part the end user will receive in their wallet. It contains all the information to render the DAT. The scene token requires a `renderer` property to be present, referencing the renderer token.
 
 ```cddl
 {
@@ -261,5 +267,5 @@ While not mandatory, it's advisable to add a **`license`** property to each file
 **Note**: Dependency tokens should be burned after minting to free up the UTxOs.
 
 ## License
-Venster Metadata Standard is licensed under
+DAT Metadata Standard is licensed under
 [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
