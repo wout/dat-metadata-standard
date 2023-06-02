@@ -1,6 +1,6 @@
 # DAT Metadata Standard
 
-A metadata standard for storing Distributed Artifact Tokens, or DATs, on the Cardano blockchain.
+A metadata standard for storing Distributed Artefact Tokens, or DATs, on the Cardano blockchain.
 
 ## Introduction
 
@@ -16,7 +16,7 @@ Some existing on-chain projects on Cardano make inefficient use of block space b
 
 ### **Problem 3**: External dependencies
 
-Storing all dependencies for a generative token on the blockchain isn't always convenient or even viable. Examples are p5.js, three.js, python or Blender, to name a few. There is no clearly defined way to describe external dependencies so that digital artifacts can be easily reproduced by third parties.
+Storing all dependencies for a generative token on the blockchain isn't always convenient or even viable. Examples are p5.js, three.js, python or Blender, to name a few. There is no clearly defined way to describe external dependencies so that digital artefacts can be easily reproduced by third parties.
 
 ### **Problem 4**: Token properties
 
@@ -24,7 +24,7 @@ As it is right now, a token's root namespace is often polluted with arbitrary ke
 
 ## DATs
 
-Generative tokens created following this standard are called **Distributed Artifact Tokens**, or **DAT**s. They can be fungible, semi-fungible or non-fungible. They are not necessarily a replacement for NFTs, but rather a separate class of token in their own right.
+Generative tokens created following this standard are called **Distributed Artefact Tokens**, or **DAT**s. They can be fungible, semi-fungible or non-fungible. They are not necessarily a replacement for NFTs, but rather a separate class of token in their own right.
 
 Another unique property of DATs is that they can query information about the current state of the blockchain, from their own mint transaction, and from previously minted tokens to create inter-linked token collections. In that sense, DATs facilitate artists to create art _with_ the blockchain.
 
@@ -78,7 +78,7 @@ Properties for the *scene* token:
 - **`properties`** (_optional_): an object with arbitrary key/value pairs describing the token's (unique) properties
 
 
-**Note**: If a DAT uses data from the blockchain to drive its generative algorithm, it's impossible to generate a thumbnail image before the mint. So the preview image for wallets and marketplaces should be treated more as an album cover than a visual representation of the actual artifact.
+**Note**: If a DAT uses data from the blockchain to drive its generative algorithm, it's impossible to generate a thumbnail image before the mint. So the preview image for wallets and marketplaces should be treated more as an album cover than a visual representation of the actual artefact.
 
 #### **1.a.** Argument directives
 
@@ -222,7 +222,7 @@ These are off-chain dependencies managed by the viewer and made available to the
 
 #### **2.d.** License types
 
-It is recommended to choose a license that aligns with the values of the creator and purpose of the digital artifact. Popular licenses are:
+It is recommended to choose a license that aligns with the values of the creator and purpose of the digital artefact. Popular licenses are:
 
 - [NFT License 2.0](https://www.nftlicense.org/)
 - [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)
