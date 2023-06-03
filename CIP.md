@@ -37,7 +37,7 @@ Without imposing more restrictions on creators, how do we drastically reduce the
 
 ### Problem 3: Dependencies and archival qualities
 
-Storing all dependencies for a generative token on the blockchain is not always convenient, sensible or even viable. Examples are p5.js, three.js, Processing or Blender, to name a few. There is no clearly defined way to describe external dependencies so that digital artefacts can be rendered or reproduced by third parties now, or in the future.
+Storing all dependencies for a generative token on the blockchain is not always convenient, sensible or even viable. Examples are p5.js, three.js, Processing or Blender, to name a few. There is currently no way to describe token dependencies so that digital artefacts can be rendered or reproduced by third parties now, or in the future.
 
 What's the best way to describe external dependencies and maximise archival qualities of web dependencies?
 
@@ -133,7 +133,7 @@ _Current blockchain state_
 - `@current_block_size` (`number`): size of the current block
 - `@current_block_hash` (`string`): hash of the current block
 
-Passing argument directives to the renderer is just like static arguments. For example:
+Passing argument directives to the renderer works just like static arguments. For example:
 
 ```json
 [
