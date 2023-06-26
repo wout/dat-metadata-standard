@@ -157,7 +157,7 @@ _Current blockchain state_
 
 Passing argument directives to the _renderer_ works just like static arguments. For example:
 
-```json
+```
 [
   123,
   "@tx_hash",
@@ -227,7 +227,7 @@ The _renderer_ token should be burned after minting to free up the UTxO.
 
 These are policy-specific on-chain dependencies managed by the creator. They must be minted within the same `policy_id` and are referenced by their `asset_name`.
 
-```json
+```
 {
   "type": "onchain",
   "asset_name": <asset_name>
@@ -243,7 +243,7 @@ These are on-chain dependencies managed internally by the viewer and made availa
 
 They can be referenced by using the dependency's asset `fingerprint`:
 
-```json
+```
 {
   "type": "internal",
   "fingerprint": <asset_fingerprint>
@@ -255,7 +255,7 @@ They can be referenced by using the dependency's asset `fingerprint`:
 
 Alternatively, the asset's `policy_id` and `asset_name` can be used:
 
-```json
+```
 {
   "type": "internal",
   "policy_id": <policy_id>,
@@ -271,7 +271,7 @@ Alternatively, the asset's `policy_id` and `asset_name` can be used:
 
 These are off-chain dependencies managed by the viewer and made available to the _renderer_ at runtime.
 
-```json
+```
 {
   "type": "external",
   "name": <library_name>,
@@ -295,7 +295,7 @@ This section only applies to non-browser-based renderers.
 
 The build of a locally executed token revolves around a Dockerfile that should be included in the files of the _renderer_ token. Optionally, package or configuration files can be included that are required by the Dockerfile to build the image.
 
-```json
+```
 {
   "files": [{
     "name": "Dockerfile",
