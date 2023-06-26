@@ -25,11 +25,11 @@ DATs introduce a way to instruct token viewers to query information from the blo
 
 ## Motivation: why is this CIP necessary?
 
-The four following problems describe the motive for creating this standard very well.
+The four following problems describe the motive for creating this standard.
 
 ### Problem 1: Storage limit
 
-Cardano is very well suited for on-chain generative tokens. Compared to other blockchains, it has the lowest L1 storage cost per kB, but the maximum transaction size of 16 kB is more limited than other chains.
+Cardano is very well suited for on-chain generative tokens. Compared to other blockchains, it has a low L1 storage cost per kB, but the maximum transaction size of 16 kB is more limited than other chains.
 
 How can we create generative tokens with larger on-chain codebases without hurting the blockchain?
 
@@ -43,7 +43,7 @@ Without imposing more restrictions on creators, how do we drastically reduce the
 
 While JavaScript has become the dominant language for on-chain art, it's only a fraction of other languages and tools available to artists. Many established artists use tools that are not based on web technologies and sometimes adapt or limit their workflow to make their work run in a web browser.
 
-What is the best interface for viewers to support a diverse set of tools and languages?
+What is the best interface for token viewers to support a diverse set of tools and languages?
 
 ### Problem 4: Archival qualities
 
@@ -86,18 +86,18 @@ Although not mandatory, it's advisable to bundle token-specific properties in th
           "name": <string>,
           "mediaType": <mime_type>,
           "src": <uri | array>,
-          "license": <string>,
++         "license": <string>,
           <other_properties>
         }],
 
-        "renderer": {
-          "main": <asset_name>,
-          "arguments": <array>
-        },
++       "renderer": {
++         "main": <asset_name>,
++         "arguments": <array>
++       },
 
-        "properties": {
-          <properties>
-        }
++       "properties": {
++         <properties>
++       }
       }
     }
   }
