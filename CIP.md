@@ -205,7 +205,7 @@ A _renderer_ must always define an `outputType`. Token viewers decide which outp
         }],
 
         "browsers": {
-          <browser_name>: <browser_version>
+          <browser_name>: <major_version>
         }
       }
     }
