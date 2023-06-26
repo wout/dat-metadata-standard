@@ -4,7 +4,7 @@ Title: DAT Metadata Standard
 Category: Metadata
 Status: Proposed
 Authors:
-  - Wout Fierens <hi@wout.codes>
+  - Wout Fierens <wout@venster.art>
 Discussions:
   - https://github.com/cardano-foundation/cips/pulls/?
 Created: 2023-06-26
