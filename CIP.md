@@ -71,7 +71,7 @@ _Scene_ tokens require a `renderer` property to be present, referencing the toke
 
 Although not mandatory, it's advisable to bundle token-specific properties in the `properties` object to avoid pollution of the token's root namespace. It will help token viewers locate and render those details.
 
-```
+```diff
 {
   "721": {
     "<policy_id>": {
@@ -184,7 +184,7 @@ A _renderer_ must always define an `outputType`. Token viewers decide which outp
 
 **Note**: A single _renderer_ token can have multiple files of different mime types, as long as the file names match the token's `asset_name`.
 
-```
+```diff
 {
   "721": {
     "<policy_id>": {
@@ -193,20 +193,20 @@ A _renderer_ must always define an `outputType`. Token viewers decide which outp
           "name": <asset_name>.<extension>,
           "mediaType": <mime_type>,
           "src": <uri | array>,
-          "license": <string>,
++         "license": <string>,
           <other_properties>
         }],
 
-        "outputType": <mime_type>,
++       "outputType": <mime_type>,
 
-        "dependencies": [{
-          "type": <string>,
-          <other_properties>
-        }],
++       "dependencies": [{
++         "type": <string>,
++         <other_properties>
++       }],
 
-        "browsers": {
-          <browser_name>: <major_version>
-        }
++       "browsers": {
++         <browser_name>: <major_version>
++       }
       }
     }
   }
@@ -326,7 +326,7 @@ Dependency tokens can have multiple parts if they do not fit into one 16kB trans
 
 The code is stored in the **`files`** property as-is or as a base64-encoded string. The `name` property of the file must match the `asset_name`. Like the _renderer_, every file can have an individual `license` property.
 
-```
+```diff
 {
   "721": {
     "<policy_id>": {
@@ -339,9 +339,9 @@ The code is stored in the **`files`** property as-is or as a base64-encoded stri
           <other_properties>
         }],
 
-        "parts": [
-          <part_asset_name>
-        ]
++       "parts": [
++         <part_asset_name>
++       ]
       }
     }
   }
