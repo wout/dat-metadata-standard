@@ -1,6 +1,6 @@
 ---
 CIP: 98?
-Title: Metadata Standard for Distributed Artefact Tokens
+Title: DAT Metadata Standard
 Category: Metadata
 Status: Proposed
 Authors:
@@ -8,7 +8,7 @@ Authors:
 Discussions:
   - https://github.com/cardano-foundation/cips/pulls/?
 Created: 2023-06-26
-License: CC-BY-SA-4.0
+License: CC-BY-4.0
 ---
 
 ## Abstract
@@ -457,17 +457,18 @@ DATs solve this by including a [Dockerfile](https://docs.docker.com/engine/refer
 
 ## Path to Active
 
+This standard was developed through implementation, which means it is already in use. There is also a viewer prototype publicly available and roughly 4000 tokens minted using the standard.
+
 ### Acceptance Criteria
 
-<!-- Describes what are the acceptance criteria whereby a proposal becomes 'Active' -->
+- [x] Build a token-viewer prototype
+- [x] Create a real-world use case of browser-based DATs
+- [ ] Create a real-world use case of non-browser-based DATs
 
 ### Implementation Plan
 
-- one implementation alreaday live (venster)
-- desktop viewer available later 2023 (open-source)
-- working with existing viewers to implement the DMS
-- provide open source tooling
+N/A
 
 ## Copyright
 
-[CC-BY-4.0]: https://creativecommons.org/licenses/by/4.0/legalcode
+[CC-BY-4.0](https://creativecommons.org/licenses/by/4.0/legalcode).
