@@ -13,7 +13,7 @@ License: CC-BY-4.0
 
 ## Abstract
 
-This standard is intended for on-chain generative tokens but may also be suitable for other use cases. It describes a method to store code on the blockchain in a space-efficient way using Cardano's Native Tokens.
+This standard was initially developed for on-chain generative tokens, but it is also suitable for other use cases. It describes a method to store code and data on the blockchain in a space-efficient way using Cardano's Native Tokens.
 
 Generative tokens created following this standard are called **Distributed Artifact Tokens** or **DAT**s. They are not necessarily a replacement for NFTs but rather a layer on top of Cardano's Native Tokens. They can be fungible, semi-fungible, or non-fungible.
 
